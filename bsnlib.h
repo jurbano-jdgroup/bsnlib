@@ -63,6 +63,7 @@
 #include "bsnlib/internal/sarrayobject.h"
 #include "bsnlib/internal/smatrixobject.h"
 #include "bsnlib/internal/slice.h"
+#include "bsnlib/internal/dslice.h"
 #include "bsnlib/internal/dot.h"
 #include "bsnlib/internal/raw.h"
 #include "bsnlib/internal/operator.h"

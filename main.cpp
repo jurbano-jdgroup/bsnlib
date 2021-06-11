@@ -1,24 +1,15 @@
-
 #include "bsnlib.h"
 
 using namespace bsnlib::internal;
 using namespace bsnlib::solve;
 
-int main() 
-{
-    using SMatrix4d = SMatrix<double,4,4>;
-    using SVector4dx = SMatrix<std::complex<double>,4,1>;
+int main() {
     SMatrix4d mat = SMatrix4d::random();
 
     mat.dump();
 
-    SVector4dx eigenValues;
-    const bool flag = EigenQrd::template compute<SMatrix4d, SVector4dx>(mat, eigenValues);
+    DSlice<double, SMatrix4d&> slice(mat, 0, 2, 0, 2);
+    slice.dump();
 
-    if (!flag) {
-        std::cout<<"Error encontrando los valores propios"<<std::endl;
-        return -1;
-    }
-
-    eigenValues.dump();
+    std::cout<<"rows: "<<DSlice<double, SMatrix4d&>::_BaseRows<<std::endl;
 }
