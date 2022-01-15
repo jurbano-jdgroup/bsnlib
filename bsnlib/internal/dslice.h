@@ -69,7 +69,7 @@ public:
         assert ((traits<_Matrix2>::rows==(RS-RI+1) && traits<_Matrix2>::cols==(CS-CI+1)) || isScalar);
         for(unsigned int i=0; i<(RS-RI+1); ++i){
             for(unsigned int j=0; j<(CS-CI+1); ++j){
-                SliceEntryUpdate<S, _Matrix2, isScalar>::update(matrix(RI+i,CI+j), other, i, j);
+                DSliceEntryUpdate<S, _Matrix2, isScalar>::update(matrix(RI+i,CI+j), other, i, j);
             }
         }
         return (*this);
