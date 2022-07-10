@@ -3,28 +3,29 @@
 
 // check c++ 11
 #ifdef __cplusplus
-#if __cplusplus < 201103L
-#error "C++ 11 required"
-#endif
-#elif
-#error "C++ required"
+    #if __cplusplus < 201103L
+        #error "C++ 11 required"
+    #endif
+#else
+    #error "C++ required"
 #endif
 
 // platform and arch checking
 #if defined (_WIN32) || defined (_WIN64) || defined (__WIN32__) || defined (__WIN64__)
-#define BSN_WIN 1
-#if defined (_WIN64) || defined (__WIN64__) || defined (__amd64__) || defined (__amd64)
-#define BSN_64 1
-#elif
-#define BSN_32 1
-#endif
+    #define BSN_WIN 1
+    #if defined (_WIN64) || defined (__WIN64__) || defined (__amd64__) || defined (__amd64)
+        #define BSN_64 1
+    #else
+        #define BSN_32 1
+    #endif
+    
 #elif defined(__linux__) || defined(__ANDROID__)
-#define BSN_LINUX
-#if defined(__amd64__) || defined(__aarch64__) || defined(__x86_64__)
-#define BSN_64 1
-#elif
-#define BSN_32
-#endif
+    #define BSN_LINUX
+    #if defined(__amd64__) || defined(__aarch64__) || defined(__x86_64__)
+        #define BSN_64 1
+    #else
+        #define BSN_32
+    #endif
 #endif
 
 #if defined (__GNUG__) || defined (__MINGW32__) || defined (__MINGW64__)
@@ -39,10 +40,10 @@
 #endif
 
 // check c++11 fatures
-#if defined (__cpp_constexpr) && defined (__cpp_decltype) && defined (__cpp_static_assert) && defined (__cpp_exceptions)
-#else
-#error "some features required"
-#endif
+//#if defined (__cpp_constexpr) && defined (__cpp_decltype) && defined (__cpp_static_assert) && defined (__cpp_exceptions)
+//#else
+//#error "some features required"
+//#endif
 
 #define BSNLIB_DEBUG = 0
 #define BSN_MAKE_DEBUG(msg) {if(BSNLIB_DEBUG){printf("%s", msg);}}
