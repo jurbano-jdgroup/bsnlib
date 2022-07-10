@@ -102,6 +102,24 @@ public:
 
         return index;
     }
+    
+    inline Scalar array_sum () const {
+        Scalar tmp = static_cast<Scalar>(0);
+        for (unsigned int i=0; i<(Dims * Rows * Cols); ++i) {
+            tmp += (*this)[i];
+        }
+        
+        return tmp;
+    }
+    
+    inline Scalar array_sum_sqr () const {
+        Scalar tmp = static_cast<Scalar>(0);
+        for (unsigned int i=0; i<(Dims*Rows*Cols); ++i) {
+            tmp += (*this)[i] * (*this)[i];
+        }
+        
+        return tmp;
+    }
 
     /** get the data pointer */
     Scalar* data(){

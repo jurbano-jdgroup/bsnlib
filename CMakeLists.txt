@@ -22,4 +22,7 @@ SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -fsee -fomit-frame-pointer -
 # Include dirs
 INCLUDE_DIRECTORIES("./bsnlib")
 
-ADD_EXECUTABLE(main main.cpp)
+ADD_EXECUTABLE(operations_test tests/operations.cpp)
+
+enable_testing()
+ADD_TEST(NAME operations_test COMMAND $<TARGET_FILE:operations_test>)
